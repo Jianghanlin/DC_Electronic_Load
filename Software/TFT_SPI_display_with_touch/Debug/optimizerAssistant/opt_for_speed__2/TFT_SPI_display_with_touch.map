@@ -1,0 +1,705 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.3                     
+******************************************************************************
+>> Linked Wed Jan  6 18:07:17 2021
+
+OUTPUT FILE NAME:   <TFT_SPI_display_with_touch.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00010fb1
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  MAIN                  00000000   00040000  00011264  0002ed9c  R  X
+  INFO                  00200000   00004000  00000000  00004000  R  X
+  SRAM_CODE             01000000   00010000  00000257  0000fda9  RW X
+  SRAM_DATA             20000000   00010000  00000257  0000fda9  RW  
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00011270   00011270    r-x
+  00000000    00000000    000000e4   000000e4    r-- .intvecs
+  000000e4    000000e4    0000c9e6   0000c9e6    r-- .const
+  0000cad0    0000cad0    00004752   00004752    r-x .text
+  00011228    00011228    00000048   00000048    r-- .cinit
+20000000    20000000    00000058   00000000    rw-
+  20000000    20000000    0000003f   00000000    rw- .data
+  20000040    20000040    00000018   00000000    rw- .bss
+2000fe00    2000fe00    00000200   00000000    rw-
+  2000fe00    2000fe00    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    000000e4     
+                  00000000    000000e4     startup_msp432p401r_ccs.obj (.intvecs:retain)
+
+.const     0    000000e4    0000c9e6     
+                  000000e4    00004718     GUI.obj (.const:.string:gImage_liulu)
+                  000047fc    00004330     GUI.obj (.const:.string:gImage_jianghanlin)
+                  00008b2c    000017c0     ST7796S.obj (.const:asc2_3216)
+                  0000a2ec    000011d0     ST7796S.obj (.const:asc2_2412)
+                  0000b4bc    000005f0     ST7796S.obj (.const:asc2_1608)
+                  0000baac    00000514     ST7796S.obj (.const:tfont32)
+                  0000bfc0    00000474     ST7796S.obj (.const:asc2_1206)
+                  0000c434    0000032e     ST7796S.obj (.const:tfont24)
+                  0000c762    000002ec     ST7796S.obj (.const:tfont16)
+                  0000ca4e    00000002     --HOLE-- [fill = 0]
+                  0000ca50    0000007a     touch.obj (.const:.string)
+
+.text      0    0000cad0    00004752     
+                  0000cad0    00000880     touch.obj (.text:TP_Adjust)
+                  0000d350    000002ec     GUI.obj (.text:draw_interface)
+                  0000d63c    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  0000d640    00000278     ST7796S.obj (.text:LCD_ShowChar_2412)
+                  0000d8b8    00000278     ST7796S.obj (.text:LCD_ShowChar_3216)
+                  0000db30    0000023c     ST7796S.obj (.text:Show_Str)
+                  0000dd6c    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : exit.c.obj (.text:abort:abort)
+                  0000dd70    00000238     GUI.obj (.text:draw_start)
+                  0000dfa8    00000204     ST7796S.obj (.text:LCD_Init)
+                  0000e1ac    00000004     --HOLE-- [fill = 0]
+                  0000e1b0    000001e4     ST7796S.obj (.text:LCD_ShowChar)
+                  0000e394    000001b6     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_add_t2.asm.obj (.text)
+                  0000e54a    00000006     --HOLE-- [fill = 0]
+                  0000e550    000001a8     ST7796S.obj (.text:GUI_DrawFont16)
+                  0000e6f8    000001a8     ST7796S.obj (.text:GUI_DrawFont24)
+                  0000e8a0    000001a8     ST7796S.obj (.text:GUI_DrawFont32)
+                  0000ea48    0000017c     touch.obj (.text:TP_Adj_Info_Show)
+                  0000ebc4    00000158     rtsv7M4_T_le_v4SPD16_eabi.lib : e_sqrt.c.obj (.text:sqrt)
+                  0000ed1c    00000004     --HOLE-- [fill = 0]
+                  0000ed20    0000011e     ST7796S.obj (.text:LCD_DrawLine)
+                  0000ee3e    00000002     --HOLE-- [fill = 0]
+                  0000ee40    0000011a     touch.obj (.text:TP_Read_XOY)
+                  0000ef5a    00000006     --HOLE-- [fill = 0]
+                  0000ef60    00000118     touch.obj (.text:TP_Scan)
+                  0000f078    00000100     ST7796S.obj (.text:LCD_ShowNum)
+                  0000f178    000000fc     key.obj (.text:key_test)
+                  0000f274    000000fc     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_mul_t2.asm.obj (.text)
+                  0000f370    000000f8     ST7796S.obj (.text:gui_circle)
+                  0000f468    000000f4     GUI.obj (.text:draw_interface1)
+                  0000f55c    00000004     --HOLE-- [fill = 0]
+                  0000f560    000000f4     GUI.obj (.text:draw_interface2)
+                  0000f654    00000004     --HOLE-- [fill = 0]
+                  0000f658    000000f4     GUI.obj (.text:draw_interface3)
+                  0000f74c    00000004     --HOLE-- [fill = 0]
+                  0000f750    000000f4     GUI.obj (.text:draw_interface4)
+                  0000f844    00000004     --HOLE-- [fill = 0]
+                  0000f848    000000da     touch.obj (.text:TP_Read_XY2)
+                  0000f922    00000006     --HOLE-- [fill = 0]
+                  0000f928    000000d4     touch.obj (.text:TP_Read_AD)
+                  0000f9fc    00000004     --HOLE-- [fill = 0]
+                  0000fa00    000000d0     touch.obj (.text:TP_Get_Adjdata)
+                  0000fad0    000000c8     ST7796S.obj (.text:LCD_direction)
+                  0000fb98    000000c6     ST7796S.obj (.text:_draw_circle_8)
+                  0000fc5e    00000002     --HOLE-- [fill = 0]
+                  0000fc60    000000bc     touch.obj (.text:TP_Drow_Touch_Point)
+                  0000fd1c    00000004     --HOLE-- [fill = 0]
+                  0000fd20    000000b0     ST7796S.obj (.text:Gui_StrCenter)
+                  0000fdd0    000000b0     ST7796S.obj (.text:LCD_Fill)
+                  0000fe80    000000a8     key.obj (.text:key_init)
+                  0000ff28    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  0000ffc4    00000004     --HOLE-- [fill = 0]
+                  0000ffc8    00000098     ST7796S.obj (.text:Gui_Drawbmp_JHL)
+                  00010060    00000098     ST7796S.obj (.text:Gui_Drawbmp_LL)
+                  000100f8    00000098     myiic.obj (.text:IIC_Read_Byte)
+                  00010190    00000098     ST7796S.obj (.text:LCD_ShowString)
+                  00010228    00000098     touch.obj (.text:TP_Save_Adjdata)
+                  000102c0    00000094     myiic.obj (.text:IIC_Send_Byte)
+                  00010354    00000004     --HOLE-- [fill = 0]
+                  00010358    00000090     ST7796S.obj (.text:LCD_SetWindows)
+                  000103e8    00000086     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_cmp_t2.asm.obj (.text:__aeabi_cdcmple)
+                  0001046e    00000086                                   : fd_cmp_t2.asm.obj (.text:__aeabi_cdrcmple)
+                  000104f4    00000004     --HOLE-- [fill = 0]
+                  000104f8    00000084     ST7796S.obj (.text:LCD_Clear)
+                  0001057c    00000004     --HOLE-- [fill = 0]
+                  00010580    0000007c     myiic.obj (.text:IIC_Wait_Ack)
+                  000105fc    00000004     --HOLE-- [fill = 0]
+                  00010600    0000007c     touch.obj (.text:TP_Write_Byte)
+                  0001067c    00000004     --HOLE-- [fill = 0]
+                  00010680    0000007c     system_init.obj (.text:system_clk_init)
+                  000106fc    00000004     --HOLE-- [fill = 0]
+                  00010700    00000078     system_msp432p401r.obj (.text:SystemInit)
+                  00010778    00000074     USCI_B0_SPI.obj (.text:usci_b0_spi_init)
+                  000107ec    00000004     --HOLE-- [fill = 0]
+                  000107f0    00000074     USCI_B0_SPI.obj (.text:usci_b0_spi_transmit_frame)
+                  00010864    00000004     --HOLE-- [fill = 0]
+                  00010868    00000068     24cxx.obj (.text:AT24CXX_ReadOneByte)
+                  000108d0    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00010938    00000060     ST7796S.obj (.text:Lcd_WriteData_16Bit)
+                  00010998    00000060     delay.obj (.text:delay_ms)
+                  000109f8    0000005c     24cxx.obj (.text:AT24CXX_WriteOneByte)
+                  00010a54    00000004     --HOLE-- [fill = 0]
+                  00010a58    00000058     delay.obj (.text:delay_us)
+                  00010ab0    00000058     USCI_B0_SPI.obj (.text:usci_b0_spi_rx_isr_handle)
+                  00010b08    00000058     USCI_B0_SPI.obj (.text:usci_b0_spi_tx_isr_handle)
+                  00010b60    00000056     24cxx.obj (.text:AT24CXX_ReadLenByte)
+                  00010bb6    00000002     --HOLE-- [fill = 0]
+                  00010bb8    0000004e     24cxx.obj (.text:AT24CXX_WriteLenByte)
+                  00010c06    00000002     --HOLE-- [fill = 0]
+                  00010c08    0000004c     myiic.obj (.text:IIC_Ack)
+                  00010c54    00000004     --HOLE-- [fill = 0]
+                  00010c58    0000004c     myiic.obj (.text:IIC_NAck)
+                  00010ca4    00000004     --HOLE-- [fill = 0]
+                  00010ca8    0000004c     myiic.obj (.text:IIC_Start)
+                  00010cf4    00000004     --HOLE-- [fill = 0]
+                  00010cf8    0000004c     myiic.obj (.text:IIC_Stop)
+                  00010d44    00000048     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_toi_t2.asm.obj (.text)
+                  00010d8c    00000004     --HOLE-- [fill = 0]
+                  00010d90    00000044     ST7796S.obj (.text:LCD_GPIOInit)
+                  00010dd4    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00010e18    0000003c     touch.obj (.text:TP_Read_XY)
+                  00010e54    00000004     --HOLE-- [fill = 0]
+                  00010e58    0000003c     device_init.obj (.text:device_init)
+                  00010e94    00000004     --HOLE-- [fill = 0]
+                  00010e98    00000038     ST7796S.obj (.text:LCD_WR_DATA)
+                  00010ed0    00000038     ST7796S.obj (.text:LCD_WR_REG)
+                  00010f08    00000038     touch.obj (.text:TP_Init)
+                  00010f40    00000038     rtsv7M4_T_le_v4SPD16_eabi.lib : fs_tod_t2.asm.obj (.text)
+                  00010f78    00000036     ST7796S.obj (.text:mypow)
+                  00010fae    00000002     --HOLE-- [fill = 0]
+                  00010fb0    00000034     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00010fe4    00000004     --HOLE-- [fill = 0]
+                  00010fe8    0000002c     delay.obj (.text:delay_init)
+                  00011014    00000004     --HOLE-- [fill = 0]
+                  00011018    00000028     myiic.obj (.text:IIC_Init)
+                  00011040    00000028     ST7796S.obj (.text:LCD_RESET)
+                  00011068    00000024     ST7796S.obj (.text:GUI_DrawPoint)
+                  0001108c    00000004     --HOLE-- [fill = 0]
+                  00011090    00000024     ST7796S.obj (.text:LCD_DrawPoint)
+                  000110b4    00000024     msp432p4xx_driverlib.lib : wdt_a.o (.text:WDT_A_holdTimer)
+                  000110d8    00000024     main.obj (.text:main)
+                  000110fc    00000004     --HOLE-- [fill = 0]
+                  00011100    00000024     system_init.obj (.text:system_init)
+                  00011124    00000004     --HOLE-- [fill = 0]
+                  00011128    00000020     vector.obj (.text:EUSCIB0_IRQHandler)
+                  00011148    00000020     ST7796S.obj (.text:LCD_SetCursor)
+                  00011168    00000020     rtsv7M4_T_le_v4SPD16_eabi.lib : u_tofd_t2.asm.obj (.text)
+                  00011188    0000001c     ST7796S.obj (.text:LCD_WriteReg)
+                  000111a4    0000001c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  000111c0    00000014                                   : strlen.c.obj (.text:strlen)
+                  000111d4    00000004     --HOLE-- [fill = 0]
+                  000111d8    00000010     ST7796S.obj (.text:LCD_WriteRAM_Prepare)
+                  000111e8    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  000111f6    00000002     --HOLE-- [fill = 0]
+                  000111f8    0000000c     startup_msp432p401r_ccs.obj (.text:Reset_Handler)
+                  00011204    00000004     --HOLE-- [fill = 0]
+                  00011208    00000008     24cxx.obj (.text:AT24CXX_Init)
+                  00011210    00000008     vector.obj (.text:WDT_A_IRQHandler)
+                  00011218    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : errno.c.obj (.text:__aeabi_errno_addr)
+                  00011220    00000002     startup_msp432p401r_ccs.obj (.text:Default_Handler)
+
+.cinit     0    00011228    00000048     
+                  00011228    00000021     (.cinit..data.load) [load image, compression = lzss]
+                  00011249    00000003     --HOLE-- [fill = 0]
+                  0001124c    0000000c     (__TI_handler_table)
+                  00011258    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00011260    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.binit     0    00000000    00000000     
+
+.data      0    20000000    0000003f     UNINITIALIZED
+                  20000000    00000028     touch.obj (.data:tp_dev)
+                  20000028    00000008     touch.obj (.data)
+                  20000030    00000004     ST7796S.obj (.data)
+                  20000034    00000004     delay.obj (.data)
+                  20000038    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : errno.c.obj (.data)
+                  2000003c    00000002     USCI_B0_SPI.obj (.data)
+                  2000003e    00000001     key.obj (.data)
+
+.bss       0    20000040    00000018     UNINITIALIZED
+                  20000040    0000000e     (.common:lcddev)
+                  2000004e    00000002     --HOLE--
+                  20000050    00000008     USCI_B0_SPI.obj (.bss)
+
+.stack     0    2000fe00    00000200     UNINITIALIZED
+                  2000fe00    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  2000fe04    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                        code    ro data   rw data
+       ------                        ----    -------   -------
+    .\
+       system_msp432p401r.obj        120     0         0      
+       main.obj                      36      0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        156     0         0      
+                                                              
+    .\ccs\
+       startup_msp432p401r_ccs.obj   14      228       0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        14      228       0      
+                                                              
+    .\src\
+       GUI.obj                       2292    35400     0      
+       ST7796S.obj                   6898    16162     36     
+       touch.obj                     4336    122       96     
+       myiic.obj                     768     0         0      
+       USCI_B0_SPI.obj               408     0         20     
+       key.obj                       420     0         2      
+       24cxx.obj                     368     0         0      
+       delay.obj                     228     0         8      
+       system_init.obj               160     0         0      
+       device_init.obj               60      0         0      
+       vector.obj                    40      0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        15978   51684     162    
+                                                              
+    C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/ccs/msp432p4xx_driverlib.lib
+       wdt_a.o                       36      0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        36      0         0      
+                                                              
+    C:\ti\ccs1011\ccs\tools\compiler\ti-cgt-arm_20.2.3.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       fd_add_t2.asm.obj             438     0         0      
+       e_sqrt.c.obj                  344     0         0      
+       fd_cmp_t2.asm.obj             268     0         0      
+       fd_mul_t2.asm.obj             252     0         0      
+       memcpy_t2.asm.obj             156     0         0      
+       copy_decompress_lzss.c.obj    104     0         0      
+       fd_toi_t2.asm.obj             72      0         0      
+       autoinit.c.obj                68      0         0      
+       fs_tod_t2.asm.obj             56      0         0      
+       boot_cortex_m.c.obj           52      0         0      
+       u_tofd_t2.asm.obj             32      0         0      
+       copy_zero_init.c.obj          28      0         0      
+       strlen.c.obj                  20      0         0      
+       errno.c.obj                   8       0         8      
+       copy_decompress_none.c.obj    14      0         0      
+       exit.c.obj                    4       0         0      
+       pre_init.c.obj                4       0         0      
+    +--+-----------------------------+-------+---------+---------+
+       Total:                        1920    0         8      
+                                                              
+       Stack:                        0       0         1024   
+       Linker Generated:             0       69        0      
+    +--+-----------------------------+-------+---------+---------+
+       Grand Total:                  18104   51981     1194   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00011260 records: 2, size/record: 8, table size: 16
+	.data: load addr=00011228, load size=00000021 bytes, run addr=20000000, run size=0000003f bytes, compression=lzss
+	.bss: load addr=00011258, load size=00000008 bytes, run addr=20000040, run size=00000018 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 0001124c records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+00011221  ADC14_IRQHandler              
+00011221  AES256_IRQHandler             
+00011209  AT24CXX_Init                  
+00010b61  AT24CXX_ReadLenByte           
+00010869  AT24CXX_ReadOneByte           
+00010bb9  AT24CXX_WriteLenByte          
+000109f9  AT24CXX_WriteOneByte          
+20000032  BACK_COLOR                    
+00011221  BusFault_Handler              
+0000dd6d  C$$EXIT                       
+20000028  CMD_RDX                       
+20000029  CMD_RDY                       
+00011221  COMP_E0_IRQHandler            
+00011221  COMP_E1_IRQHandler            
+00011221  CS_IRQHandler                 
+00011221  DMA_ERR_IRQHandler            
+00011221  DMA_INT0_IRQHandler           
+00011221  DMA_INT1_IRQHandler           
+00011221  DMA_INT2_IRQHandler           
+00011221  DMA_INT3_IRQHandler           
+00011221  DebugMon_Handler              
+00011221  Default_Handler               
+00011221  EUSCIA0_IRQHandler            
+00011221  EUSCIA1_IRQHandler            
+00011221  EUSCIA2_IRQHandler            
+00011221  EUSCIA3_IRQHandler            
+00011129  EUSCIB0_IRQHandler            
+00011129  EUSCIB0_IRQHandler            
+00011221  EUSCIB1_IRQHandler            
+00011221  EUSCIB2_IRQHandler            
+00011221  EUSCIB3_IRQHandler            
+00011221  FLCTL_IRQHandler              
+00011221  FPU_IRQHandler                
+0000e551  GUI_DrawFont16                
+0000e6f9  GUI_DrawFont24                
+0000e8a1  GUI_DrawFont32                
+00011069  GUI_DrawPoint                 
+0000ffc9  Gui_Drawbmp_JHL               
+00010061  Gui_Drawbmp_LL                
+0000fd21  Gui_StrCenter                 
+00011221  HardFault_Handler             
+00010c09  IIC_Ack                       
+00011019  IIC_Init                      
+00010c59  IIC_NAck                      
+000100f9  IIC_Read_Byte                 
+000102c1  IIC_Send_Byte                 
+00010ca9  IIC_Start                     
+00010cf9  IIC_Stop                      
+00010581  IIC_Wait_Ack                  
+000104f9  LCD_Clear                     
+0000ed21  LCD_DrawLine                  
+00011091  LCD_DrawPoint                 
+0000fdd1  LCD_Fill                      
+00010d91  LCD_GPIOInit                  
+0000dfa9  LCD_Init                      
+00011041  LCD_RESET                     
+00011149  LCD_SetCursor                 
+00010359  LCD_SetWindows                
+0000e1b1  LCD_ShowChar                  
+0000d641  LCD_ShowChar_2412             
+0000d8b9  LCD_ShowChar_3216             
+0000f079  LCD_ShowNum                   
+00010191  LCD_ShowString                
+00010e99  LCD_WR_DATA                   
+00010ed1  LCD_WR_REG                    
+000111d9  LCD_WriteRAM_Prepare          
+00011189  LCD_WriteReg                  
+0000fad1  LCD_direction                 
+00010939  Lcd_WriteData_16Bit           
+00011221  MemManage_Handler             
+00011221  NMI_Handler                   
+00011221  PCM_IRQHandler                
+20000030  POINT_COLOR                   
+00011221  PORT1_IRQHandler              
+00011221  PORT2_IRQHandler              
+00011221  PORT3_IRQHandler              
+00011221  PORT4_IRQHandler              
+00011221  PORT5_IRQHandler              
+00011221  PORT6_IRQHandler              
+00011221  PSS_IRQHandler                
+00011221  PendSV_Handler                
+00011221  RTC_C_IRQHandler              
+000111f9  Reset_Handler                 
+00011221  SVC_Handler                   
+0000db31  Show_Str                      
+00011221  SysTick_Handler               
+00010701  SystemInit                    
+00011221  T32_INT1_IRQHandler           
+00011221  T32_INT2_IRQHandler           
+00011221  T32_INTC_IRQHandler           
+00011221  TA0_0_IRQHandler              
+00011221  TA0_N_IRQHandler              
+00011221  TA1_0_IRQHandler              
+00011221  TA1_N_IRQHandler              
+00011221  TA2_0_IRQHandler              
+00011221  TA2_N_IRQHandler              
+00011221  TA3_0_IRQHandler              
+00011221  TA3_N_IRQHandler              
+0000ea49  TP_Adj_Info_Show              
+0000cad1  TP_Adjust                     
+0000fc61  TP_Drow_Touch_Point           
+0000fa01  TP_Get_Adjdata                
+00010f09  TP_Init                       
+2000002c  TP_REMIND_MSG_TBL             
+0000f929  TP_Read_AD                    
+0000ee41  TP_Read_XOY                   
+00010e19  TP_Read_XY                    
+0000f849  TP_Read_XY2                   
+00010229  TP_Save_Adjdata               
+0000ef61  TP_Scan                       
+00010601  TP_Write_Byte                 
+00011221  UsageFault_Handler            
+4000480c  WDTCTL_SYM                    
+00011211  WDT_A_IRQHandler              
+00011211  WDT_A_IRQHandler              
+000110b5  WDT_A_holdTimer               
+20010000  __STACK_END                   
+00000200  __STACK_SIZE                  
+00011260  __TI_CINIT_Base               
+00011270  __TI_CINIT_Limit              
+0001124c  __TI_Handler_Table_Base       
+00011258  __TI_Handler_Table_Limit      
+00010dd5  __TI_auto_init_nobinit_nopinit
+000108d1  __TI_decompress_lzss          
+000111e9  __TI_decompress_none          
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+000111a5  __TI_zero_init_nomemset       
+000103e9  __aeabi_cdcmpeq               
+000103e9  __aeabi_cdcmple               
+0001046f  __aeabi_cdrcmple              
+00010d45  __aeabi_d2iz                  
+0000e39f  __aeabi_dadd                  
+0000f275  __aeabi_dmul                  
+0000e395  __aeabi_dsub                  
+00011219  __aeabi_errno_addr            
+00010f41  __aeabi_f2d                   
+0000ff29  __aeabi_memcpy                
+0000ff29  __aeabi_memcpy4               
+0000ff29  __aeabi_memcpy8               
+00011169  __aeabi_ui2d                  
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+2000fe00  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+00010fb1  _c_int00_noargs               
+0000fb99  _draw_circle_8                
+UNDEFED   _system_post_cinit            
+0000d63d  _system_pre_init              
+0000dd6d  abort                         
+0000bfc0  asc2_1206                     
+0000b4bc  asc2_1608                     
+0000a2ec  asc2_2412                     
+00008b2c  asc2_3216                     
+ffffffff  binit                         
+00010fe9  delay_init                    
+00010999  delay_ms                      
+00010a59  delay_us                      
+00010e59  device_init                   
+0000d351  draw_interface                
+0000f469  draw_interface1               
+0000f561  draw_interface2               
+0000f659  draw_interface3               
+0000f751  draw_interface4               
+0000dd71  draw_start                    
+20000038  errno                         
+000047fc  gImage_jianghanlin            
+000000e4  gImage_liulu                  
+0000f371  gui_circle                    
+00000000  interruptVectors              
+0000fe81  key_init                      
+0000f179  key_test                      
+20000040  lcddev                        
+000110d9  main                          
+0000ff29  memcpy                        
+00010f79  mypow                         
+0000ebc5  sqrt                          
+0000ebc5  sqrtl                         
+000111c1  strlen                        
+00010681  system_clk_init               
+00011101  system_init                   
+0000c762  tfont16                       
+0000c434  tfont24                       
+0000baac  tfont32                       
+20000000  tp_dev                        
+00010779  usci_b0_spi_init              
+00010ab1  usci_b0_spi_rx_isr_handle     
+000107f1  usci_b0_spi_transmit_frame    
+00010b09  usci_b0_spi_tx_isr_handle     
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  interruptVectors              
+000000e4  gImage_liulu                  
+00000200  __STACK_SIZE                  
+000047fc  gImage_jianghanlin            
+00008b2c  asc2_3216                     
+0000a2ec  asc2_2412                     
+0000b4bc  asc2_1608                     
+0000baac  tfont32                       
+0000bfc0  asc2_1206                     
+0000c434  tfont24                       
+0000c762  tfont16                       
+0000cad1  TP_Adjust                     
+0000d351  draw_interface                
+0000d63d  _system_pre_init              
+0000d641  LCD_ShowChar_2412             
+0000d8b9  LCD_ShowChar_3216             
+0000db31  Show_Str                      
+0000dd6d  C$$EXIT                       
+0000dd6d  abort                         
+0000dd71  draw_start                    
+0000dfa9  LCD_Init                      
+0000e1b1  LCD_ShowChar                  
+0000e395  __aeabi_dsub                  
+0000e39f  __aeabi_dadd                  
+0000e551  GUI_DrawFont16                
+0000e6f9  GUI_DrawFont24                
+0000e8a1  GUI_DrawFont32                
+0000ea49  TP_Adj_Info_Show              
+0000ebc5  sqrt                          
+0000ebc5  sqrtl                         
+0000ed21  LCD_DrawLine                  
+0000ee41  TP_Read_XOY                   
+0000ef61  TP_Scan                       
+0000f079  LCD_ShowNum                   
+0000f179  key_test                      
+0000f275  __aeabi_dmul                  
+0000f371  gui_circle                    
+0000f469  draw_interface1               
+0000f561  draw_interface2               
+0000f659  draw_interface3               
+0000f751  draw_interface4               
+0000f849  TP_Read_XY2                   
+0000f929  TP_Read_AD                    
+0000fa01  TP_Get_Adjdata                
+0000fad1  LCD_direction                 
+0000fb99  _draw_circle_8                
+0000fc61  TP_Drow_Touch_Point           
+0000fd21  Gui_StrCenter                 
+0000fdd1  LCD_Fill                      
+0000fe81  key_init                      
+0000ff29  __aeabi_memcpy                
+0000ff29  __aeabi_memcpy4               
+0000ff29  __aeabi_memcpy8               
+0000ff29  memcpy                        
+0000ffc9  Gui_Drawbmp_JHL               
+00010061  Gui_Drawbmp_LL                
+000100f9  IIC_Read_Byte                 
+00010191  LCD_ShowString                
+00010229  TP_Save_Adjdata               
+000102c1  IIC_Send_Byte                 
+00010359  LCD_SetWindows                
+000103e9  __aeabi_cdcmpeq               
+000103e9  __aeabi_cdcmple               
+0001046f  __aeabi_cdrcmple              
+000104f9  LCD_Clear                     
+00010581  IIC_Wait_Ack                  
+00010601  TP_Write_Byte                 
+00010681  system_clk_init               
+00010701  SystemInit                    
+00010779  usci_b0_spi_init              
+000107f1  usci_b0_spi_transmit_frame    
+00010869  AT24CXX_ReadOneByte           
+000108d1  __TI_decompress_lzss          
+00010939  Lcd_WriteData_16Bit           
+00010999  delay_ms                      
+000109f9  AT24CXX_WriteOneByte          
+00010a59  delay_us                      
+00010ab1  usci_b0_spi_rx_isr_handle     
+00010b09  usci_b0_spi_tx_isr_handle     
+00010b61  AT24CXX_ReadLenByte           
+00010bb9  AT24CXX_WriteLenByte          
+00010c09  IIC_Ack                       
+00010c59  IIC_NAck                      
+00010ca9  IIC_Start                     
+00010cf9  IIC_Stop                      
+00010d45  __aeabi_d2iz                  
+00010d91  LCD_GPIOInit                  
+00010dd5  __TI_auto_init_nobinit_nopinit
+00010e19  TP_Read_XY                    
+00010e59  device_init                   
+00010e99  LCD_WR_DATA                   
+00010ed1  LCD_WR_REG                    
+00010f09  TP_Init                       
+00010f41  __aeabi_f2d                   
+00010f79  mypow                         
+00010fb1  _c_int00_noargs               
+00010fe9  delay_init                    
+00011019  IIC_Init                      
+00011041  LCD_RESET                     
+00011069  GUI_DrawPoint                 
+00011091  LCD_DrawPoint                 
+000110b5  WDT_A_holdTimer               
+000110d9  main                          
+00011101  system_init                   
+00011129  EUSCIB0_IRQHandler            
+00011129  EUSCIB0_IRQHandler            
+00011149  LCD_SetCursor                 
+00011169  __aeabi_ui2d                  
+00011189  LCD_WriteReg                  
+000111a5  __TI_zero_init_nomemset       
+000111c1  strlen                        
+000111d9  LCD_WriteRAM_Prepare          
+000111e9  __TI_decompress_none          
+000111f9  Reset_Handler                 
+00011209  AT24CXX_Init                  
+00011211  WDT_A_IRQHandler              
+00011211  WDT_A_IRQHandler              
+00011219  __aeabi_errno_addr            
+00011221  ADC14_IRQHandler              
+00011221  AES256_IRQHandler             
+00011221  BusFault_Handler              
+00011221  COMP_E0_IRQHandler            
+00011221  COMP_E1_IRQHandler            
+00011221  CS_IRQHandler                 
+00011221  DMA_ERR_IRQHandler            
+00011221  DMA_INT0_IRQHandler           
+00011221  DMA_INT1_IRQHandler           
+00011221  DMA_INT2_IRQHandler           
+00011221  DMA_INT3_IRQHandler           
+00011221  DebugMon_Handler              
+00011221  Default_Handler               
+00011221  EUSCIA0_IRQHandler            
+00011221  EUSCIA1_IRQHandler            
+00011221  EUSCIA2_IRQHandler            
+00011221  EUSCIA3_IRQHandler            
+00011221  EUSCIB1_IRQHandler            
+00011221  EUSCIB2_IRQHandler            
+00011221  EUSCIB3_IRQHandler            
+00011221  FLCTL_IRQHandler              
+00011221  FPU_IRQHandler                
+00011221  HardFault_Handler             
+00011221  MemManage_Handler             
+00011221  NMI_Handler                   
+00011221  PCM_IRQHandler                
+00011221  PORT1_IRQHandler              
+00011221  PORT2_IRQHandler              
+00011221  PORT3_IRQHandler              
+00011221  PORT4_IRQHandler              
+00011221  PORT5_IRQHandler              
+00011221  PORT6_IRQHandler              
+00011221  PSS_IRQHandler                
+00011221  PendSV_Handler                
+00011221  RTC_C_IRQHandler              
+00011221  SVC_Handler                   
+00011221  SysTick_Handler               
+00011221  T32_INT1_IRQHandler           
+00011221  T32_INT2_IRQHandler           
+00011221  T32_INTC_IRQHandler           
+00011221  TA0_0_IRQHandler              
+00011221  TA0_N_IRQHandler              
+00011221  TA1_0_IRQHandler              
+00011221  TA1_N_IRQHandler              
+00011221  TA2_0_IRQHandler              
+00011221  TA2_N_IRQHandler              
+00011221  TA3_0_IRQHandler              
+00011221  TA3_N_IRQHandler              
+00011221  UsageFault_Handler            
+0001124c  __TI_Handler_Table_Base       
+00011258  __TI_Handler_Table_Limit      
+00011260  __TI_CINIT_Base               
+00011270  __TI_CINIT_Limit              
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+20000000  tp_dev                        
+20000028  CMD_RDX                       
+20000029  CMD_RDY                       
+2000002c  TP_REMIND_MSG_TBL             
+20000030  POINT_COLOR                   
+20000032  BACK_COLOR                    
+20000038  errno                         
+20000040  lcddev                        
+2000fe00  __stack                       
+20010000  __STACK_END                   
+4000480c  WDTCTL_SYM                    
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[193 symbols]
